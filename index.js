@@ -42,6 +42,7 @@ class AnimatedBar extends Component {
     if (prevProps.progress !== this.props.progress) {
       if (this.props.animate) {
         Animated.timing(this.state.animation, {
+          useNativeDriver: false, // Hardware rendering doesn't sit well with module
           toValue: this.props.progress,
           duration: this.props.duration,
         }).start();
